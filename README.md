@@ -1,7 +1,5 @@
 # Papini-s-Pizza-App
 
-This is a pizza store application.
-
 # Author
 
 [Victoria Beryl](https://github.com/Victoria045)
