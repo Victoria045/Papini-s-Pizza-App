@@ -1,42 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&family=Roboto:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&display=swap");
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  
 }
 
 body {
   background-color: #fcfcfc;
-  /* font-family: 'Paprika', sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .header {
   background-color: #d1c9b1;
-   /* background-image:
+  /* background-image:
     linear-gradient(
       to right,
       #D1C9B1, #0d6efd
     ); */
 }
 
+.header-wrapper {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.header-cont {
+  margin: 300px 80px 0px;
+}
 .nav-btn {
   width: 8%;
   height: 4vh;
 }
 
-/* .img-cont-two {
-  margin:80px 0px 0px 1600px;
-  width: 200px;
-  height: 180px;
-} */
+.img-cont-two {
+  margin:0px 0px 0px 0px;
+  width: 10%;
+  /* height: 180px; */
+}
 
 .container-wrapper {
-  margin: 20px 0px 20px;
-  font-family: 'Paprika', sans-serif;
+  margin: 0px 0px 20px;
+  font-family: "Paprika", sans-serif;
 }
 
 .container-cont {
@@ -44,22 +50,56 @@ body {
 }
 
 .products {
-  border: 2px solid #000000;
+  /* border: 2px solid #000000; */
   margin-top: 220px;
   height: 50vh;
   display: grid;
   grid-template-columns: 260px 1fr;
-  grid-gap:0px 20px;
+  grid-gap: 0px 20px;
 }
 
 .left-container {
-  border: 2px solid #FFC300;
+  /* border: 2px solid #FFC300; */
+  background-color: #f5f2eb;
+}
+
+.left-form {
+  width: 90%;
+  margin: 40px 5px 0px;
 }
 
 .prod-head {
-  font-family: 'Paprika', sans-serif;
+  font-family: "Paprika", sans-serif;
+  margin-top: 40px;
   /* color: #FFC300; */
 }
 .right-container {
-  border: 2px solid #FFC300 ;
+  border: 2px solid #d1c9b1;
+  /* margin: 0px 290px 0px 0px; */
+}
+
+.crust {
+  font-family: "Paprika", sans-serif;
+  margin-top: 100px;
+}
+
+.crust-cont {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 10px;
+  padding: 5px;
+}
+
+.crust-cont > button {
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  background-color: #ddd7c3;
+  /* width: 100px; */
+}
+
+.crust-cont > button:hover {
+  background-color: #d1c9b1;
 }
