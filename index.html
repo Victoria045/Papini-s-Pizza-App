@@ -11,12 +11,48 @@
 <body>
 
   <div class="container-fluid header">
-    <div class="container">
+    <div class="container d-flex justify-content-between">
       <nav>
         <h3 class="p-3"><span class="text-danger">Papini's</span>Pizza</h3>
       </nav>
+      <nav class="btn btn-outline-danger nav-btn m-3">Add to cart</nav>
     </div>
-    
+  </div>
+  <div class="container-fluid img-cont mt-5">
+    <img src="assets/img2.jpg" alt="pizza">
+  </div>
+  <div class="container">
+    <div class="container-wrapper">
+      <h1 class="text-center">Life is better with pizza!</h1>
+      <p class="text-center text-danger ">Always a smile on your slice..</p>
+    </div>
+    <div class="container-cont">
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+              <option selected>Location</option>
+              <option value="1">Ongata-Rongai</option>
+              <option value="2">Karen</option>
+              <option value="3">Utawala</option>
+              <option value="3">Lang'ata</option>
+              <option value="3">Westlands</option>
+            </select>
+            <label for="floatingSelectGrid">Choose your location</label>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+              <option selected>Delivery</option>
+              <option value="1">Have it delivered</option>
+              <option value="2">Pickup</option>
+            </select>
+            <label for="floatingSelectGrid">Have it delivered or not</label>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
 
