@@ -29,15 +29,24 @@ body {
 .header-cont {
   margin: 300px 80px 0px;
 }
+
 .nav-btn {
   width: 8%;
   height: 4vh;
 }
 
 .img-cont {
-  margin: 40px 0px 0px 10px;
+  margin: 80px 0px 0px 10px;
   width: 10%;
   /* height: 180px; */
+}
+
+.explore-btn {
+  margin: 120px 840px 0px;
+}
+
+.explore-btn > button {
+  width: 200px;
 }
 
 .container-wrapper {
@@ -74,7 +83,7 @@ body {
   /* color: #FFC300; */
 }
 .right-container {
-  border-left: 2px solid #d1c9b1;
+  /* border-left: 2px solid #d1c9b1; */
   border-top: 2px solid #d1c9b1;
   font-family: "Paprika", sans-serif;
   color: #dc3545;
@@ -147,3 +156,9 @@ body {
 /* .store-item-value {
   color: --mainYellow;
 } */
+
+
+footer {
+  background-color: #d1c9b1;
+  margin-top: 200px;
+}
