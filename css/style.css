@@ -1,18 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&display=swap');
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  
+}
+
+body {
+  background-color: #fcfcfc;
+  /* font-family: 'Paprika', sans-serif; */
   font-family: 'Roboto', sans-serif;
 }
 
 .header {
-
   background-color: #d1c9b1;
    /* background-image:
     linear-gradient(
       to right,
       #D1C9B1, #0d6efd
     ); */
+}
+
+.nav-btn {
+  width: 8%;
+  height: 4vh;
+}
+
+/* .img-cont-two {
+  margin:80px 0px 0px 1600px;
+  width: 200px;
+  height: 180px;
+} */
+
+.container-wrapper {
+  margin: 20px 0px 20px;
+  font-family: 'Paprika', sans-serif;
+}
+
+.container-cont {
+  margin: 180px 0px 0px;
 }
