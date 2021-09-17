@@ -42,3 +42,24 @@ body {
 .container-cont {
   margin: 180px 0px 0px;
 }
+
+.products {
+  border: 2px solid #000000;
+  margin-top: 220px;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-gap:0px 20px;
+}
+
+.left-container {
+  border: 2px solid #FFC300;
+}
+
+.prod-head {
+  font-family: 'Paprika', sans-serif;
+  /* color: #FFC300; */
+}
+.right-container {
+  border: 2px solid #FFC300 ;
+}
