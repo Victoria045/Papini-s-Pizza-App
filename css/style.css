@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&family=Roboto:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Montez&family=Paprika&display=swap");
+@import "path/to/font-awesome/less/font-awesome.less";
+
 
 * {
   padding: 0px;
@@ -14,11 +16,6 @@ body {
 
 .header {
   background-color: #d1c9b1;
-  /* background-image:
-    linear-gradient(
-      to right,
-      #D1C9B1, #0d6efd
-    ); */
 }
 
 .header-wrapper {
@@ -30,19 +27,23 @@ body {
   margin: 300px 80px 0px;
 }
 
-.nav-btn {
-  width: 8%;
-  height: 4vh;
+ .nav-btn {
+  font-family: "Paprika", sans-serif;
+} 
+
+.nav-btn1 {
+  margin: 0px 0px 0px 230px;
+  font-family: "Paprika", sans-serif;
 }
 
 .img-cont {
   margin: 80px 0px 0px 10px;
   width: 10%;
-  /* height: 180px; */
 }
 
 .explore-btn {
   margin: 120px 840px 0px;
+  font-family: "Paprika", sans-serif;
 }
 
 .explore-btn > button {
@@ -62,9 +63,9 @@ body {
   /* border: 2px solid #000000; */
   margin-top: 220px;
   height: 50vh;
-  display: grid;
+  /* display: grid;
   grid-template-columns: 260px 1fr;
-  grid-gap: 0px 20px;
+  grid-gap: 0px 20px; */
 }
 
 .left-container {
@@ -83,9 +84,9 @@ body {
   /* color: #FFC300; */
 }
 .right-container {
-  /* border-left: 2px solid #d1c9b1; */
-  border-top: 2px solid #d1c9b1;
-  font-family: "Paprika", sans-serif;
+  border: 2px solid #d1c9b1;
+  /* border-top: 2px solid #d1c9b1; */
+  /* font-family: "Paprika", sans-serif; */
   color: #dc3545;
   /* margin: 0px 290px 0px 0px; */
 }
@@ -96,7 +97,7 @@ body {
 
 .crust {
   font-family: "Paprika", sans-serif;
-  margin-top: 400px;
+  margin-top: 200px;
 }
 
 .crust-cont {
@@ -120,24 +121,21 @@ body {
   background-color: #d1c9b1;
 }
 
-/* .store {
-  background: var(--mainGrey);
-} */
-
 .img-container {
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
 
-.store-img {
+.product-img {
   transition: all 1s ease-in-out;
 }
 
-.img-container:hover .store-img {
+.img-container:hover .product-img {
   transform: scale(1.2);
 }
-/* .store-item-icon {
+
+/* .product-item-icon {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -146,19 +144,24 @@ body {
   border-top-left-radius: 1rem;
   transition: all 1s ease-in-out;
   transform: translate(100%, 100%);
-} */
-/* .img-container:hover .store-item-icon {
+} 
+.img-container:hover .product-item-icon {
   transform: translate(0, 0);
 }
-.store-item-icon:hover {
+.product-item-icon:hover {
   color: var(--mainWhite);
-} */
-/* .store-item-value {
+}  */
+ .product-item-value {
   color: --mainYellow;
-} */
+}
 
 
-footer {
+.footer-cont {
   background-color: #d1c9b1;
-  margin-top: 200px;
+  height: 5vh;
+  margin: 250px 0px 0px;
+}
+
+footer > p {
+  font-weight: 20px;
 }
