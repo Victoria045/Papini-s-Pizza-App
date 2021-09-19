@@ -22,11 +22,14 @@
 
           <button type="button" class="btn btn-danger nav-btn mt-3 checkOut">
             Checkout
-            <span class="badge bg-light text-danger" id="checkoutItems">0</span>
+            <span class="badge bg-light text-danger" id="checkoutItems"></span>
           </button>
         </div>
       </div>
     </div>
+    
+    <div class="d-none" id="orderItems">Checkout Details</div>
+
     <div class="container-fluid header-wrapper">
       <div class="img-cont">
         <img src="assets/img5.png" alt="pizza-img" />
@@ -50,8 +53,8 @@
                   <option value="1">Ongata-Rongai</option>
                   <option value="2">Karen</option>
                   <option value="3">Utawala</option>
-                  <option value="3">Lang'ata</option>
-                  <option value="3">Westlands</option>
+                  <option value="4">Lang'ata</option>
+                  <option value="5">Westlands</option>
                 </select>
                 <label for="floatingSelectGrid">Choose your location</label>
               </div>
@@ -84,8 +87,6 @@
 
     <div class="container products">
       <div class="right-container">
-        <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button> -->
-
         <div
           class="offcanvas offcanvas-end"
           tabindex="-1"
@@ -260,7 +261,7 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
+                  
                 </div>
               </div>
             </div>
@@ -297,7 +298,6 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
+                  
                 </div>
               </div>
             </div>
@@ -374,7 +374,7 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
+                  
                 </div>
               </div>
             </div>
@@ -411,7 +411,7 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
+                  
                 </div>
               </div>
             </div>
@@ -448,7 +448,7 @@
                   >
                     Order
                   </button>
-                  <!-- <h5 class="product-item-value">ksh <strong id="store-item-price" class="font-weight-bold">1000</strong></h5> -->
+                
                 </div>
               </div>
             </div>
@@ -458,7 +458,7 @@
       </div>
     </div>
 
-    <div class="container-fluid" id="footer-wrapper">
+    <div id="footer-wrapper">
       <footer class="footer-cont">
         <p class="text-center p-3">copyrights&copy;allrightsreserved</p>
       </footer>

@@ -95,8 +95,7 @@ let cart = new Cart();
         pizzaPrice += selectedPizza.price;
         console.log(selectedPizza.topping)
         if(selectedPizza.crust) pizzaPrice += selectedPizza.crust.crustPrice;
-        if(selectedPizza.topping) pizzaPrice += selectedPizza.topping.reduce((a, b) => a+b.toppingPrice, 0);
-          // console.log(pizzaPrice)         
+        if(selectedPizza.topping) pizzaPrice += selectedPizza.topping.reduce((a, b) => a+b.toppingPrice, 0);        
         $('#pizzaPrices').html(pizzaPrice); 
     }
 
@@ -106,58 +105,8 @@ let cart = new Cart();
     $('#totalPrice').html(subTotalPrice + (checkout.delivery ? checkout.delivery.price : 0));
 
 }
-    
-    // $('#shoppingCart ul.list-group').html('');
-    // for(let i=0; i<cart.cartItems.length; i++){
-    //     const item = cart.cartItems[i];
-    //     const crustPrice = item.crust ? item.crust.price : 0;
-    //     let toppingPrice = 0;
-    //     if(item.topping.length > 0){
-    //         toppingPrice = item.topping.reduce((a, b)=>a+b.price, 0);
-    //     }
-    //     // const toppingPrice = item.topping ? item.topping.price : 0;
-    //     subTotalPrice += item.price + crustPrice + toppingPrice;
-
-    //     $('#shoppingCart ul.list-group').append(cartItemHtml);        
-    //     $('#shoppingCart ul.list-group li:last img').attr('src', './assets/images/'+item.image);
-    //     $('#shoppingCart ul.list-group li:last span.name').html(item.name);
-    //     $('#shoppingCart ul.list-group li:last span.price').html(item.price);
-    //     if(item.crust) 
-    //         $('#shoppingCart ul.list-group li:last div.details')
-    //         .append("Crust:"+item.crust.name)
-
-    //     if(item.topping) $('#shoppingCart ul.list-group li:last div.details')
-    //         .append(" Topping:"+item.topping.map(topping => topping.name).join(','));
-        
-    // }
-
-    
-    // $('.checkOut').each(function(){
-    //     if(checkout.checkoutItems.length > 0)
-    //         $(this).removeAttr('disabled');
-    //     else $(this).attr('disabled', true);
-    // });
-
- 
-//    $('#cartItems').html(cart.cartItems.length);
-//      if(selectedPizza){
-//        $('#pizzaPrices').html(pizzaPrices);
-//          let pizzaPrices = 0;
-//           if(selectedPizza.price){
-//               pizzaPrices += selectedPizza.price;
-//              $('#addToCart').removeAttr('disabled');
-//          }
-//          else{
-//             $('#addToCart').attr('disabled', true);
-//         }
-//         if(selectedPizza.crust) pizzaPrices += selectedPizza.crust.price;
-//         if(selectedPizza.topping) pizzaPrices += selectedPizza.topping.reduce((a, b) => a+b.price, 0);
-
-//         $('#pizzaPrices').html(pizzaPrices);
-      //}
 
      
-
 $(document).ready(function() {
 
   $('button.orderBtn').click(function() {
@@ -210,26 +159,36 @@ $(document).ready(function() {
 
    /* Selected crust*/
    $('#crustType button').click(function() {
-
     const selectedCrustType = $(this).val();
-    // console.log(selectedCrustType);
-
     selectedPizza.crust = crustItems.find(cr => cr.crustName === selectedCrustType);
-    // console.log(selectedPizza.crust, 'crust')
-
+    
     modifiedUI();
   });
 
-  /* Retrieve delivery regions */
+
+  /* Deliverey option  */
   
-  $('select#delivery').change(function(){
-      cart.delivery = regions.find(r => r.regionName == $(this).val());
-      alert('Please select the location you would want it delivered to!');
-      // console.log(cart.delivery);
+  $('select#delivered').change(function(){
+      if($(this).val() == 1 && !cart.delivery ){
+        alert('Please select the location you would want your pizza delivered!');
+      }else{
+        cart.toDeliver = true
+      }
       modifiedUI();
   });
-  /* End of populate delivery zones */
 
+  /* End of delivery options */
+   
+  $('select#region').change(function(){
+    cart.delivery = selectedRegion[$(this).val()  - 1]
+    console.log(cart.delivery)
+    
+    if(cart.delivery ){
+      alert(`Delivery cost is ${cart.delivery.price}!`);
+    }
+    console.log(cart.delivery);
+    modifiedUI();
+});
 
    /* Add to cart event*/
 
@@ -239,15 +198,13 @@ $(document).ready(function() {
     alert(`Your ${selectedPizza.name} pizza order has been added to cart`);
 
     modifiedUI();
+    $('#toppings .form-check-input').val('');
   });
-
-      $('#shoppingCartBtn').click(function() {
-        $('#shoppingCart').toggle();
-      });
 
       $('.checkOut').click(function() {
         alert('We have received your order');
         cart = new Cart();
         updateUI();
  });
+//  $('#toppings .form-check-input').val('');
 });
