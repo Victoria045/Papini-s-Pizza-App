@@ -91,6 +91,7 @@ let cart = new Cart();
  function modifiedUI() {
     $('#cartItems').html(checkout.checkoutItems.length);
     if(selectedPizza){
+      
         let pizzaPrice = 0;
         pizzaPrice += selectedPizza.price;
         console.log(selectedPizza.topping)
