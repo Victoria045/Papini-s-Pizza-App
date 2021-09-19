@@ -26,6 +26,18 @@ function Categorey(name, image) {
    this.toppingPrice = price;
  }
 
+
+function Cart(){
+  const cart = this;
+  this.cartItems = [];
+  this.delivery = null;
+  this.addToCart = function(item){
+      cart.cartItems.push(item);
+      $("#cartItems").html(cart.cartItems.length);
+  }
+}
+let cart = new Cart();
+
  function Checkout() {
     const checkout = this;
     this.checkoutItems = [];
@@ -47,7 +59,7 @@ function Categorey(name, image) {
    new Categorey('Mushroom', 'img1.jpg'),
    new Categorey('BBQ-Chicken', 'img1.jpg'),
    new Categorey('Sausages', 'img1.jpg'),
-   new Categorey('Sausages', 'img1.jpg')
+   new Categorey('Extra Bacon', 'img1.jpg')
  ]
 
  const crustItems = [
@@ -84,7 +96,7 @@ function Categorey(name, image) {
         console.log(selectedPizza.topping)
         if(selectedPizza.crust) pizzaPrice += selectedPizza.crust.crustPrice;
         if(selectedPizza.topping) pizzaPrice += selectedPizza.topping.reduce((a, b) => a+b.toppingPrice, 0);
-          console.log(pizzaPrice)         
+          // console.log(pizzaPrice)         
         $('#pizzaPrices').html(pizzaPrice); 
     }
 
@@ -154,9 +166,9 @@ $(document).ready(function() {
     selectedPizza = pizzaItems[pizzaItem];
 
     $('#offcanvasRight img').attr('src', '../assets/'+selectedPizza.image);
-    console.log(selectedPizza);
     
   });
+
 
   /* Selected pizza sizes */
 
@@ -179,12 +191,10 @@ $(document).ready(function() {
   $('#toppings .form-check-input').change(function() {
 
     const isChecked = this.checked;
-    console.log(isChecked)
     const selectedToppingType = $(this).val();
-    console.log(selectedToppingType);
+    
     let topping = toppingItems.find(top => top.toppingName === selectedToppingType)
-    // console.log(toppingItems, selectedToppingType)
-    // console.log()
+   
     const positionOfSelectedTopping = selectedPizza.topping.findIndex(function(toppingItem) {
         return toppingItem.toppingName == topping.toppingName;
     });
@@ -202,17 +212,42 @@ $(document).ready(function() {
    $('#crustType button').click(function() {
 
     const selectedCrustType = $(this).val();
-    console.log(selectedCrustType);
+    // console.log(selectedCrustType);
 
     selectedPizza.crust = crustItems.find(cr => cr.crustName === selectedCrustType);
-    console.log(selectedPizza.crust, 'crust')
+    // console.log(selectedPizza.crust, 'crust')
+
     modifiedUI();
   });
+
+  /* Retrieve delivery regions */
+  
+  $('select#delivery').change(function(){
+      cart.delivery = regions.find(r => r.regionName == $(this).val());
+      alert('Please select the location you would want it delivered to!');
+      // console.log(cart.delivery);
+      modifiedUI();
+  });
+  /* End of populate delivery zones */
 
 
    /* Add to cart event*/
 
      $('#addToCart').click(function() {
      cart.addToCart(selectedPizza);
+     
+    alert(`Your ${selectedPizza.name} pizza order has been added to cart`);
+
+    modifiedUI();
   });
+
+      $('#shoppingCartBtn').click(function() {
+        $('#shoppingCart').toggle();
+      });
+
+      $('.checkOut').click(function() {
+        alert('We have received your order');
+        cart = new Cart();
+        updateUI();
+ });
 });
