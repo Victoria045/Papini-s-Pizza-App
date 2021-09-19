@@ -1,94 +1,99 @@
-/* Iniializing the available sizes of pizza */
+
+/* *
+    Name Haawain Pizza
+    Size: Large or medium or small
+    Crust: crispy, stuffed, Glutten free
+    Topings: bacon checken cheese
+*/
+
 const pizzaSizes = ['small', 'Medium', 'Large'];
 
 function Categorey(name, image) {
-  this.name = name;
-  this.image = image;
-
-  this.prices = {
-    'small': 800,
-    'medium': 1200,
+   this.name = name;
+   this.image = image;
+   this.prices = {
+     'small': 800,
+     'medium': 1200,
     'large': 1500 
-  }
+   }
+ }
+ Categorey.prototype.price = 0;
+ Categorey.prototype.crust = null;
+ Categorey.prototype.topping = [];
+
+
+ function Crusts(name, price) {
+   this.crustName = name;
+   this.crustPrice = price;
+ }
+
+ function Toppings(name, price) {
+   this.toppingName = name;
+   this.toppingPrice = price;
+ }
+
+ function Cart() {
+    const cart = this;
+    this.cartItems = [];
+    this.delivery = null;
+     this.addToCart = function(item){
+         cart.cartItems.push(item);
+         $("#cartItems").html(cartItems.length);
+     }
+ }
+
+ function Region(region, price){
+    this.regionName = region;
+    this.price = price;
 }
 
-Categorey.prototype.price = 0;
-Categorey.prototype.crust = null;
-Categorey.prototype.topping = [];
+ const pizzaItems = [
+   new Categorey('Hawaian', 'img1.jpg'),
+   new Categorey('Pepperoni', 'img1.jpg'),
+   new Categorey('Mushroom', 'img1.jpg'),
+   new Categorey('BBQ-Chicken', 'img1.jpg'),
+   new Categorey('Sausages', 'img1.jpg'),
+   new Categorey('Sausages', 'img1.jpg')
+ ]
 
+ const crustItems = [
+   new Crusts('Crispy', 150),
+   new Crusts('Stuffed', 200),
+   new Crusts('Gluten-free', 300),
+ ]
 
-function Crusts(name, price) {
-    this.crustName = name;
-    this.crustPrice = price;
-  }
+ const toppingItems = [
+   new Toppings('Exra cheese', 200),
+   new Toppings('Bacon', 250),
+   new Toppings('Pepperoni', 220),
+   new Toppings('Mushrooms', 150),
+   new Toppings('Sausage', 120),
+ ]
 
-  function Toppings(name, price) {
-      this.toppingName = name;
-      this.toppingPrice = price;
+ const selectedRegion = [
+   new Region("Ongata-Rongai", 300),
+   new Region("Karen", 500),
+   new Region("Utawala", 300),
+   new Region("Lang'ata", 200),
+   new Region("Westlands", 300)
+ ]
+
+ const cart = new Cart();
+ let selectedPizza;
+ let cartItemElement;
+
+function populateDropdowns(sizeElement, items, valueFiled, textField, extraField){
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
+        let extras = extraField ? '('+item[extraField]+')' : '';
+        let value = valueFiled ? item[valueFiled] : item;
+        let text = textField ? item[textField] : item;
+        sizeElement.append(`<option value="` + value + `">` + text + extras+`</option>`);
     }
-
-  function Cart() {
-      const cart = this;
-        this.cartItems = [];
-        this.delivery = null;
-        this.addToCart = function(item){
-            cart.cartItems.push(item);
-            $("#cartItems").html(cartItems.length);
-        }
-    }
-
-    function Location(location, price){
-      this.locationName = location;
-      this.price = price;
-  }
-  
-let cart = new Cart();
-let selectedPizza;
-let cartItemElement;
-
-const pizzaCategories = [
-    new Categorey("Haawain","img1.jpg"),
-    new Categorey("Pepperoni", "img1.jpg"),
-    new Categorey("Mushroom Pizza", "img1.jpg"),
-    new Categorey("Sausages", "img1.jpg"),
-    new Categorey("Extra cheese", "img1.jpg"),
-    new Categorey("BBQ Chicken", "img1.jpg")
-];
-
-const crustItems = [
-    new crusts("Crispy", 100),
-    new crusts("stuffed", 120),
-    new crusts("Glutten free", 200)
-];
-
-const toppingItems = [
-    new Toppings('Exra cheese', 200),
-    new Toppings('Bacon', 250),
-    new Toppings('Pepperoni', 220),
-    new Toppings('Mushrooms', 150),
-    new Toppings('Sausage', 120),
-  ]
-
-  const location = [
-      new Location("Ongata-Rongai", 300),
-      new Location(("Karen", 500),
-      new Location(("Utawala", 300),
-      new Location(("Lang'ata", 200),
-      new Location(("Westlands", 300)
-    ]
-
-// function populateDropdowns(sizeElement, items, valueFiled, textField, extraField){
-//     for (let i = 0; i < items.length; i++) {
-//         let item = items[i];
-//         let extras = extraField ? '('+item[extraField]+')' : '';
-//         let value = valueFiled ? item[valueFiled] : item;
-//         let text = textField ? item[textField] : item;
-//         sizeElement.append(`<option value="` + value + `">` + text + extras+`</option>`);
-//     }
-// }
+}
 
 function updateUI(){
-    $('#cartItems').html(Cart.cartItems.length);
+    $('#cartItems').html(cart.cartItems.length);
     if(selectedPizza){
         let pizzaPrice = 0;
         if(selectedPizza.price){
@@ -99,14 +104,14 @@ function updateUI(){
             $('#addToCart').attr('disabled', true);
         }
         if(selectedPizza.crust) pizzaPrice += selectedPizza.crust.price;
-        if(selectedPizza.topping) pizzaPrice += selectedPizza.topping.reduce((a, b)=> a + b.price, 0);
+        if(selectedPizza.topping) pizzaPrice += selectedPizza.topping.reduce((a, b) => a+b.price, 0);
                 
-        $('#pizzaPrices').html(pizzaPrice);
+        $('#pizzaPrice').html(pizzaPrice);
 
     }
 
     let subTotalPrice = 0;
-    let totalPrice = 0;
+    
     $('#shoppingCart ul.list-group').html('');
     for(let i=0; i<cart.cartItems.length; i++){
         const item = cart.cartItems[i];
@@ -119,7 +124,7 @@ function updateUI(){
         subTotalPrice += item.price + crustPrice + toppingPrice;
 
         $('#shoppingCart ul.list-group').append(cartItemHtml);        
-        $('#shoppingCart ul.list-group li:last img').attr('src', './assets/images/'+item.image);
+        $('#shoppingCart ul.list-group li:last img').attr('src', './assets/'+item.image);
         $('#shoppingCart ul.list-group li:last span.name').html(item.name);
         $('#shoppingCart ul.list-group li:last span.price').html(item.price);
         if(item.crust) 
@@ -144,67 +149,35 @@ function updateUI(){
 
 $(document).ready(function () {
 
-    cartItemElement = $('#shoppingCart .cartItem').prop('outerHTML');
+    cartItemHtml = $('#shoppingCart .cartItem').prop('outerHTML');
     $('#shoppingCart .cartItem').remove();
 
-    /* Populating pizza list */
-    const pizzaListDiv = $('#pizzaCategories');
-    let pizzaItems = '';
-
-    for (let i = 0; i < pizzaCategories.length; i++) {
-        let pizzaItem = pizzaCategory[i];
-
-    //     pizzaItems += `<div class="col-md-4 p-3">
-    //     <div class="card" style="width: 18rem;">
-    //     <div class="pizzaImage">
-    //     <img src="./assets/images/${pizzaItem.image}" class="card-img-top" alt="...">
-    //     </div>
-    //     <div class="card-body">
-    //       <h5 class="card-title">`+ pizzaItem.name + `</h5>
-    //       <p class="card-text">`+ pizzaItem.description + `</p>
-
-    //       <a href="#" data-index="`+ i + `" 
-    //         class="btn btn-primary orderBtn"
-    //         data-bs-toggle="offcanvas"
-    //         data-bs-target="#pizzaCustomazation"
-    //         aria-controls="offcanvasBottom">Order</a>
-
-    //     </div>
-    //   </div>
-    //     </div>`;
-        pizzaItem = undefined;
-    }
-
-    pizzaListDiv.html(pizzaItems);
-
+    
+    // pizzaListDiv.html(pizzaItems);
     $('button.orderBtn').click(function() {
 
-            let pizzaItem = $(this).data('item');
-            let selectedPizza = pizzaItems[pizzaItem];
-        
-            $('#offcanvasRight img').attr('src', '../assets/'+selectedPizza.image);
-            console.log(selectedPizza);
-    // pizzaListDiv.find('a.orderBtn').each(function () {
-    //     $(this).on('click', function () {
-    //         let pizzaIndex = $(this).data('index');
-    //         selectedPizza = pizzaListing[pizzaIndex];
-    //         $('#pizzaCustomazation img').attr('src', './assets/images/' + selectedPizza.image);
-            
-            $('select#pizzaSize').val('');
-            $('select#toppingType').val('');
-            $('select#crustType').val('');
-            $('#pizzaPrices').html('');
-        });
+      let pizzaItem = $(this).data('item');
+      let selectedPizza = pizzaItems[pizzaItem];
+  
+      $('#offcanvasRight img').attr('src', '../assets/'+selectedPizza.image);
+      console.log(selectedPizza);
+
+      $('select#size').val('');
+      $('select#toppings').val('');
+      $('select#crust').val('');
+      $('#pizzaPrice').html('');
+      
     });
     /* end of Populating pizza list */
 
     /* Populate sizes */
-    populateDropdowns($('select#size'), pizzaSizes);
-    $('select#size').on('change', function(){
+    $(('select#size'), pizzaSizes);
+    $('select#size').change(function(){
         const size =$(this).val();
         if(selectedPizza){
             selectedPizza.price = selectedPizza.prices[size];
         }
+        console.log(size);
         updateUI()
     });
     /* end of Populate sizes */

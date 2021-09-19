@@ -32,8 +32,12 @@ body {
 } 
 
 .nav-btn1 {
-  margin: 0px 0px 0px 230px;
+  margin: 0px 10px 0px 120px;
   font-family: "Paprika", sans-serif;
+}
+
+#pizzaPrices {
+  margin: 0px 10px 0px 10px;
 }
 
 .img-cont {
@@ -83,13 +87,25 @@ body {
   margin-top: 40px;
   /* color: #FFC300; */
 }
+.offcanvas-body {
+  font-family: "Roboto", sans-serif;
+}
 .right-container {
   border: 2px solid #d1c9b1;
   /* border-top: 2px solid #d1c9b1; */
-  /* font-family: "Paprika", sans-serif; */
+  font-family: "Paprika", sans-serif;
   color: #dc3545;
   /* margin: 0px 290px 0px 0px; */
 }
+
+ .orderBtn {
+  background-color: #d1c9b1;
+  border: none;
+}
+
+/*.orderBtn:hover {
+  background-color: #d1c9b1;
+} */
 
 .right-container > h3 {
   text-decoration: underline;
@@ -97,7 +113,7 @@ body {
 
 .crust {
   font-family: "Paprika", sans-serif;
-  margin-top: 200px;
+  margin-top: 40px;
 }
 
 .crust-cont {
@@ -125,6 +141,11 @@ body {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+.selectedPizzaImage {
+  height: 150px; 
+  overflow: hidden;
 }
 
 .product-img {
