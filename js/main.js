@@ -100,13 +100,6 @@ function modifiedUI() {
       );
     $("#pizzaPrices").html(pizzaPrice);
   }
-
-  let subTotalPrice = 0;
-
-  $("#totalPrice").html(subTotalPrice);
-  $("#totalPrice").html(
-    subTotalPrice + (checkout.delivery ? checkout.delivery.price : 0)
-  );
 }
 
 $(document).ready(function () {
