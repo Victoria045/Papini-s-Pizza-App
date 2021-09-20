@@ -103,32 +103,10 @@ function modifiedUI() {
 
   let subTotalPrice = 0;
 
-  $('#shoppingList').html('');
-  for(let i=0; i<cart.cartItems.length; i++){
-      const item = cart.cartItems[i];
-      const crustPrice = item.crust ? item.crust.price : 0;
-      let toppingPrice = 0;
-      if(item.topping.length > 0){
-          toppingPrice = item.topping.reduce((a, b) => a+b.price, 0);
-      }
-     
-      subTotalPrice += item.price + crustPrice + toppingPrice;
-
-      $('#shoppingList').append(cartItemElement);        
-      $('#shoppingList span#type').html(item.name);
-      $('#shoppingList span#size').html(item.size);
-      if(item.crust) 
-          $('#shoppingList span#slCrust')
-          .append("Crust:"+item.crust.name)
-
-      if(item.topping) $('#shoppingList span#slTopping')
-          .append(" Topping:"+item.topping.map(topping => topping.name).join(','));   
-  }
-
   $("#totalPrice").html(subTotalPrice);
-  // $("#totalPrice").html(
-  //   subTotalPrice + (checkout.delivery ? checkout.delivery.price : 0)
-  // );
+  $("#totalPrice").html(
+    subTotalPrice + (checkout.delivery ? checkout.delivery.price : 0)
+  );
 }
 
 $(document).ready(function () {
