@@ -40,10 +40,17 @@ body {
   font-family: "Paprika", sans-serif;
 }
 
-#orderItems{
+.orderItems{
   position:absolute;
   z-index: 1;
+  font-family: "Paprika", sans-serif;
+  border: 2px solid #d1c9b1;
+  margin: 0px 0px 0px 1400px;
   display: none;
+}
+
+.order-wrapper {
+  margin: 10px;
 }
 
 .img-cont {
@@ -174,6 +181,10 @@ footer > p {
   .img-cont {
     margin: 40px 0px 0px 0px;
     width: 10px;
+  }
+
+  .orderItems{
+    margin: 0px 0px 0px 950px;
   }
 
   .explore-btn {
