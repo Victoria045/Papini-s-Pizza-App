@@ -114,7 +114,6 @@ $(document).ready(function () {
     let pizzaItem = $(this).data("item");
     selectedPizza = pizzaItems[pizzaItem];
 
-    $("#offcanvasRight img").attr("src", "../assets/" + selectedPizza.image);
   });
 
   /* Selected pizza sizes */
