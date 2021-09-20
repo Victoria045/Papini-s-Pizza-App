@@ -16,19 +16,54 @@
           <h3 class="p-3"><span class="text-danger">Papini's</span>Pizza</h3>
         </nav>
         <div>
-          <button type="button" class="btn btn-danger nav-btn mt-3 checkOut">
-            Checkout
-            <span
-              class="badge bg-light text-danger"
-              id="checkoutItems"
-              ></span
+          <button
+            type="button"
+            class="btn btn-outline-danger nav-btn mt-3"
+            id="shoppingList"
+          >
+            Shopping Cart
+            <span class="badge bg-danger text-light" id="shoppingCartItems"
+              >0</span
             >
           </button>
+          <!-- <button type="button" class="btn btn-danger nav-btn mt-3 checkOut">
+            Checkout
+            <span class="badge bg-light text-danger" id="checkoutItems"></span>
+          </button> -->
         </div>
       </div>
     </div>
 
-    <div class="d-none" id="orderItems">Checkout Details</div>
+    <div class="orderItems" id="orderItems">
+      <div class="order-wrapper">
+        <p class="text-center">Your Order Item Details</p>
+      <div>
+        <h6>Pizza Type:<span id="type"></span></h6>
+        <p>Pizza Size:<span id="size"></span></p>
+        <p>Toppings:<span id="slTopping"></span></p>
+        <p>Crust:<span id="slCrust"></span></p>
+        <div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault" id="deliveredChecked">
+              Delivery
+            </label>
+          </div>
+        </div>
+        <div>Total Amount:<span id="totalPrice"></span></p></div>
+      </div>
+      <button type="button" class="btn btn-danger m-2 nav-btn mt-3 checkOut">
+        Checkout
+        <span class="badge bg-light text-danger" id="checkoutItems"></span>
+      </button>
+      </div>
+      
+    </div>
 
     <div class="container-fluid header-wrapper">
       <div class="img-cont">
