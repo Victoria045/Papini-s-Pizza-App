@@ -4,13 +4,12 @@
 
 [Victoria Beryl](https://github.com/Victoria045)
 
-## Screenshot
-<img src="./assets/img3.jpeg">
-
 ## Description
 
-This is a pizza web application with an option of placing as many orders as you want 
-and have an option to select if you would want it delivered to your location or not.
+This is a pizza web application with an option of placing as many orders as you want and have an option as a user to select if you would want it delivered to your location or not.
+
+## Screenshot
+<img src="assets/im3.jpeg">
 
 ## Setup/Installation Requirements
 
@@ -18,7 +17,6 @@ and have an option to select if you would want it delivered to your location or 
 - Load the website url on your browser
 
 ## Technologies Used
-
 - Bootstrap 5 v1.0 - 2021-07-09
 - HTML
 - CSS
@@ -26,12 +24,17 @@ and have an option to select if you would want it delivered to your location or 
 - jQuery
 
 ## BDD
-- Click the order button of your favorite pizza
-- Enter your email eg **janedoe@gmail.com**
-- Message your concerns
-- **Submit.**
+On clicking order button user is able to;
+- Choose the pizza size they want eg **Large, Medium, Small**
+- Choose the kind of crust they want which are either **Crispy, Stuffed, Gluten-free**
+- Choose the favorite toppings among a list of options
+- Place an order and see the total charge.
+- Have an option to order as many pizzas as a user may want
+- Have an option of the pizza being delivered to you or not
+- If delivered you have an alert of the location placed and the total charge.
+- **Add to cart**
 
-- Expected output is **janedoe we have received your message. Thank you for reaching out to us.**
+- See a checkout button that displays the total amount charged for the orders on delivery.
 
 ## Support and contact details
 
