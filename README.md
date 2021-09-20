@@ -24,7 +24,7 @@ This is a pizza web application with an option of placing as many orders as you 
 - jQuery
 
 ## BDD
-On clicking order button user is able to;
+**On clicking order button user is able to;**
 - Choose the pizza size they want eg **Large, Medium, Small**
 - Choose the kind of crust they want which are either **Crispy, Stuffed, Gluten-free**
 - Choose the favorite toppings among a list of options
